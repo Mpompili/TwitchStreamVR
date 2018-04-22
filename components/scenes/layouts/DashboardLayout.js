@@ -1,7 +1,8 @@
 import React from 'react';
 import {
     View,
-    Animated
+    Animated,
+    CylindricalPanel
 } from 'react-vr'; 
 
 import MenuButtons from './elements/MenuButtons.js';
@@ -78,7 +79,7 @@ class DashboardLayout extends React.Component {
     }
 
     render() {
-        console.log('made it to dashboard layout');
+
         return (
             <View>
                 <Animated.View style={{
@@ -92,11 +93,11 @@ class DashboardLayout extends React.Component {
                         {translateX: this.state.slideLeft},
                         {translateZ: -3}
                     ],
-                    marginTop: -0.25
+                    marginTop: -0.2
                 }}>
-                    <MenuButtons/>
-                    <TileButtons updateStage={this.updateStage.bind(this)} borderWidths={this.state.borderWidths}/>
-                    <ProgressCircles color1={this.state.color1} color2={this.state.color2}/> 
+                        <MenuButtons/>
+                        <TileButtons previews={this.props.previews} updateStage={this.updateStage.bind(this)} borderWidths={this.state.borderWidths}/>
+                        <ProgressCircles color1={this.state.color1} color2={this.state.color2}/> 
                 </Animated.View> 
                 
                 <View style={{
